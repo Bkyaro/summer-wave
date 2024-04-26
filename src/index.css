@@ -5,6 +5,7 @@
 
 	color-scheme: light dark;
 	color: rgba(255, 255, 255, 0.87);
+	background-color: grey;
 
 	font-synthesis: none;
 	text-rendering: optimizeLegibility;
@@ -12,25 +13,24 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 
-body{
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-  margin:0;
-  padding:0
+body {
+	position: relative;
+	width: 100vw;
+	height: 100vh;
+	margin: 0;
+	padding: 0;
 }
 
-#root{
-  position: relative;
-  width: 100%;
-  height: 100%;
-
+#root {
+	position: relative;
+	width: 100%;
+	height: 100%;
 }
 
-canvas{
-  position: absolute;
-  left:0;
-  top:0;
-  width: 100vw;
-  height: 100vh;
+canvas {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100vw;
+	height: 100vh;
 }
