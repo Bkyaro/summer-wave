@@ -16,11 +16,12 @@ const Line: FC<Props> = (props) => {
 	const uniforms = useMemo(() => {
 		return {
 			uOffset: { value: props.index * 11 },
+			uTime: { value: 0 },
 		};
 	}, [props.index]);
 
 	return (
-		<>
+		<group>
 			<mesh position-z={-props.index * 0.095} geometry={lineGeometry}>
 				<shaderMaterial
 					vertexShader={vertexShader}
@@ -40,7 +41,7 @@ const Line: FC<Props> = (props) => {
 					side={THREE.DoubleSide}
 				/>
 			</mesh>
-		</>
+		</group>
 	);
 };
 
