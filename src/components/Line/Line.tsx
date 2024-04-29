@@ -17,6 +17,7 @@ const Line: FC<Props> = (props) => {
 		return {
 			uOffset: { value: props.index * 11 },
 			uTime: { value: 0 },
+			...THREE.UniformsLib["fog"],
 		};
 	}, [props.index]);
 
@@ -27,6 +28,7 @@ const Line: FC<Props> = (props) => {
 					vertexShader={vertexShader}
 					fragmentShader={fragmentShader}
 					uniforms={uniforms}
+					fog
 				/>
 			</mesh>
 			<mesh
@@ -39,6 +41,7 @@ const Line: FC<Props> = (props) => {
 					fragmentShader={planeShader}
 					uniforms={uniforms}
 					side={THREE.DoubleSide}
+					fog
 				/>
 			</mesh>
 		</group>

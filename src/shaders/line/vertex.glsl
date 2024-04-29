@@ -1,9 +1,14 @@
+#include <fog_pars_fragment>
 #include ../noise;
 
 uniform float uOffset;
 uniform float uTime;
 
 void main(){
+    #include <begin_vertex>
+    #include <project_vertex>
+    #include <fog_vertex>
+
     vec3 pos = position;
 
     float flatnessAmplitude = pow(1.0 - abs(uv.x - 0.5) * 2.0, 3.5);
