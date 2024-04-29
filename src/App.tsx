@@ -5,10 +5,10 @@ import Scene from "./components/Scene/Scene";
 function App() {
 	return (
 		<Canvas camera={{
-      fov: 45,
+      fov: 55,
       near: 0.1,
-      far: 300,
-      position: [0, 4, -4]
+      far: 1000,
+      position: [0, 4, -18]
     }}>
 			<Scene></Scene>
 		</Canvas>

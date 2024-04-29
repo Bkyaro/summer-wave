@@ -1,3 +1,5 @@
 void main(){
-    gl_Position = projectionMatrix * modelMatrix * viewMatrix * vec4(position, 1.0);
+    vec3 pos = position;
+    pos.y += sin(pos.x * 30.0) * 0.015;
+    gl_Position = projectionMatrix * viewMatrix * modelMatrix * vec4(pos, 1.0);
 }
