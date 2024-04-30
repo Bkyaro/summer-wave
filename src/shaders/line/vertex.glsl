@@ -3,6 +3,7 @@
 
 uniform float uOffset;
 uniform float uTime;
+uniform float uStrength;
 
 void main(){
     #include <begin_vertex>
@@ -11,7 +12,7 @@ void main(){
 
     vec3 pos = position;
 
-    float flatnessAmplitude = pow(1.0 - abs(uv.x - 0.5) * 2.0, 3.5);
+    float flatnessAmplitude = pow(1.0 - abs(uv.x - 0.5) * 2.0, 3.5) * uStrength;
 
     pos.y += noise2D(vec2(pos.x + uOffset, uTime * 0.02) * 50.0) * 0.018;
     pos.y += noise2D(vec2(pos.x + uOffset, uTime * 0.001) * 1000.0) * 0.1 * flatnessAmplitude;

@@ -17,6 +17,7 @@ const Line: FC<Props> = (props) => {
 		return {
 			uOffset: { value: props.index * 11 },
 			uTime: { value: 0 },
+			uStrength: { value: 1 },
 			...THREE.UniformsLib["fog"],
 		};
 	}, [props.index]);

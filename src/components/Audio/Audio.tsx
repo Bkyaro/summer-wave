@@ -1,9 +1,11 @@
-import { useEffect, useRef } from "react";
+import { MutableRefObject, createRef, useEffect, useRef } from "react";
 import { PositionalAudio } from "@react-three/drei";
 import * as THREE from "three";
 
 import trackPath from "../../assets/track.mp3";
 import useStore from "../../store/store";
+
+export const analyserRef = createRef() as MutableRefObject<THREE.AudioAnalyser>;
 
 const Audio = () => {
 	const audioRef = useRef<THREE.PositionalAudio>(null!);
@@ -12,6 +14,7 @@ const Audio = () => {
 	useEffect(() => {
 		const audio = audioRef.current;
 		if (isMusicPlaying) {
+			analyserRef.current = new THREE.AudioAnalyser(audio, 512);
 			audio.play();
 		} else {
 			audio.stop();
