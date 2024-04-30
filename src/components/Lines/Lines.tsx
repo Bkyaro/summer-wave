@@ -3,7 +3,7 @@ import { Center } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 
 import { analyserRef } from "../Audio/Audio";
-import { map } from "../../utils/map";
+import { map, lerp } from "../../utils/utils";
 
 import Line from "../Line/Line";
 import useStore from "../../store/store";
@@ -24,12 +24,18 @@ const Lines = () => {
 
 		lines.children.forEach((line, index) => {
 			line.children.forEach((lineOrPlane) => {
-				lineOrPlane.material.uniforms.uTime.value = time;
+				const uniforms = lineOrPlane.material.uniforms;
+				uniforms.uTime.value = time;
 
 				if (isMusicPlaying) {
 					const frequency = frequencies?.[index];
-					const strength = map(frequency, 0, 255, 0, 1);
-					lineOrPlane.material.uniforms.uStrength.value = strength;
+					const currentStrength = uniforms.uStrength.value;
+					const nextStrength = map(frequency, 0, 255, 0, 1);
+					lineOrPlane.material.uniforms.uStrength.value = lerp(
+						currentStrength,
+						nextStrength,
+						0.25
+					);
 				}
 			});
 		});
