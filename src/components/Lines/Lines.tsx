@@ -10,17 +10,14 @@ import Line from "../Line/Line";
 import useStore from "../../store/store";
 
 const Lines = () => {
-	// debug panel values
-	const controls = useCustomControls();
-
 	const linesRef = useRef(null!);
 	const isMusicPlaying = useStore((state) => state.isMusicPlaying);
 
-	const linesCount = useMemo(
-		() => controls.line.count,
-		[controls.line.count]
-	);
+	const linesCount = useMemo(() => 69, []);
 	const linesList = useMemo(() => [...new Array(linesCount)], [linesCount]);
+
+	// debug panel values
+	const controls = useCustomControls();
 
 	useFrame((state) => {
 		const time = state.clock.getElapsedTime();
