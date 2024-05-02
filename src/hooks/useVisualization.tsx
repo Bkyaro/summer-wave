@@ -32,7 +32,7 @@ const useVisualization = (linesRef) => {
 
 				gsap.to(fog, {
 					density: 0.01,
-					duratioN: 3,
+					duratioN: 2.5,
 					ease: "power1.inOut",
 				});
 
@@ -40,13 +40,13 @@ const useVisualization = (linesRef) => {
 					x: -1,
 					y: 1.5,
 					z: -gap * linesCount + 5,
-					duration: 3,
+					duration: 2.5,
 					ease: "power1.inOut",
 					onComplete: () => {
 						gsap.to(camera.position, {
 							x: -0.5,
 							y: 2,
-							z: -30,
+							z: -10,
 							duration: 18,
 							ease: "sine.out",
 						});
