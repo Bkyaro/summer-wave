@@ -1,14 +1,15 @@
 import { OrbitControls } from "@react-three/drei";
+import { Suspense } from "react";
 import Lines from "../Lines/Lines";
 import Audio from "../../components/Audio/Audio";
 import { useCustomControls } from "../../hooks";
+import Loader from "../../components/Loader";
 
 const Scene = () => {
 	const controls = useCustomControls();
 
 	return (
 		<>
-			{/* scene background: new THREE.Color("#021119") */}
 			<color args={[controls.scene.fogAndBg]} attach="background"></color>
 			<OrbitControls />
 			<fogExp2
@@ -17,7 +18,10 @@ const Scene = () => {
 				density={controls.scene.fogDensity / 100}
 			/>
 			<Audio />
-			<Lines />
+
+			<Suspense fallback={<Loader />}>
+				<Lines />
+			</Suspense>
 		</>
 	);
 };
