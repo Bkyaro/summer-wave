@@ -1,9 +1,9 @@
 import { useMemo, FC } from "react";
 import * as THREE from "three";
 
-import vertexShader from "../../shaders/line/vertex.glsl";
-import fragmentShader from "../../shaders/line/fragment.glsl";
-import planeShader from "../../shaders/plane/fragment.glsl";
+import vertexShader from "../../shaders/line/line.vertex.glsl";
+import fragmentShader from "../../shaders/line/line.fragment.glsl";
+import planeShader from "../../shaders/plane/plane.fragment.glsl";
 import { useCustomControls } from "../../hooks";
 
 const lineGeometry = new THREE.BoxGeometry(5, 0.03, 0.02, 128, 1, 1);
