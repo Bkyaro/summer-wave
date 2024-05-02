@@ -27,7 +27,7 @@ function useAxesControl() {
 		"axes",
 		{
 			showAxes: {
-				value: true,
+				value: false,
 			},
 			AxesLength: {
 				min: 0,
@@ -70,6 +70,18 @@ function useLineControl() {
 				max: 5,
 				step: 0.01,
 				value: 0.095,
+			},
+			count: {
+				min: 1,
+				max: 256,
+				step: 1,
+				value: 69,
+			},
+			uStrength: {
+				min: 0,
+				max: 99,
+				step: 1,
+				value: 1,
 			},
 		},
 		{ collapsed: true }
