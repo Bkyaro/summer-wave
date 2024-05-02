@@ -21,6 +21,27 @@ function useSceneControl() {
 	return scene;
 }
 
+// axes
+function useAxesControl() {
+	const axes = useControls(
+		"axes",
+		{
+			showAxes: {
+				value: true,
+			},
+			AxesLength: {
+				min: 0,
+				max: 99,
+				step: 0.1,
+				value: 5,
+			},
+		},
+		{ collapsed: true }
+	);
+
+	return axes;
+}
+
 // audio
 function useAudioControl() {
 	const audio = useControls(
@@ -62,10 +83,12 @@ function useCustomControls() {
 	const scene = useSceneControl();
 	const audio = useAudioControl();
 	const line = useLineControl();
+	const axes = useAxesControl();
 
 	return {
 		audio,
 		line,
+		axes,
 		scene,
 	} as const;
 }

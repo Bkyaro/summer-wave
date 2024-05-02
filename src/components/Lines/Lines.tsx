@@ -48,7 +48,9 @@ const Lines = () => {
 	return (
 		<Center>
 			<group ref={linesRef}>
-				<axesHelper args={[5]}></axesHelper>
+				{controls.axes.showAxes && (
+					<axesHelper args={[controls.axes.AxesLength]} />
+				)}
 				{linesList.map((_, index) => {
 					return <Line index={index} />;
 				})}
