@@ -2,10 +2,17 @@ import "./App.css";
 import { Canvas } from "@react-three/fiber";
 import Scene from "./components/Scene/Scene";
 import PlayButton from "./components/Button/Button";
+import { Leva } from "leva";
 
 function App() {
 	return (
 		<>
+			<Leva
+				flat
+				titleBar={true}
+				hidden={false}
+				collapsed
+			/>
 			<Canvas
 				camera={{
 					fov: 55,

@@ -4,6 +4,7 @@ import { useFrame } from "@react-three/fiber";
 
 import { analyserRef } from "../Audio/Audio";
 import { map, lerp } from "../../utils/utils";
+import { useCustomControls } from "../../hooks";
 
 import Line from "../Line/Line";
 import useStore from "../../store/store";
@@ -14,6 +15,9 @@ const Lines = () => {
 
 	const linesCount = useMemo(() => 69, []);
 	const linesList = useMemo(() => [...new Array(linesCount)], [linesCount]);
+
+	// debug panel values
+	const controls = useCustomControls();
 
 	useFrame((state) => {
 		const time = state.clock.getElapsedTime();

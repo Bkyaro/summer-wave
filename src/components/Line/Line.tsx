@@ -4,6 +4,7 @@ import * as THREE from "three";
 import vertexShader from "../../shaders/line/vertex.glsl";
 import fragmentShader from "../../shaders/line/fragment.glsl";
 import planeShader from "../../shaders/plane/fragment.glsl";
+import { useCustomControls } from "../../hooks";
 
 const lineGeometry = new THREE.BoxGeometry(5, 0.03, 0.02, 128, 1, 1);
 const planeGerometry = new THREE.PlaneGeometry(5, 1.5, 128, 1);
@@ -13,6 +14,8 @@ interface Props {
 }
 
 const Line: FC<Props> = (props) => {
+	const controls = useCustomControls();
+
 	const uniforms = useMemo(() => {
 		return {
 			uOffset: { value: props.index * 11 },
@@ -24,7 +27,10 @@ const Line: FC<Props> = (props) => {
 
 	return (
 		<group>
-			<mesh position-z={-props.index * 0.095} geometry={lineGeometry}>
+			<mesh
+				position-z={-props.index * controls.line.gap}
+				geometry={lineGeometry}
+			>
 				<shaderMaterial
 					vertexShader={vertexShader}
 					fragmentShader={fragmentShader}
@@ -33,7 +39,7 @@ const Line: FC<Props> = (props) => {
 				/>
 			</mesh>
 			<mesh
-				position-z={-props.index * 0.095}
+				position-z={-props.index * controls.line.gap}
 				position-y={-0.75}
 				geometry={planeGerometry}
 			>
