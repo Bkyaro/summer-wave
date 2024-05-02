@@ -3,16 +3,13 @@ import { Canvas } from "@react-three/fiber";
 import Scene from "./components/Scene/Scene";
 import PlayButton from "./components/Button/Button";
 import { Leva } from "leva";
+import { useDebugPanel } from "./hooks";
 
 function App() {
+	const isDebugPanelEnbale = useDebugPanel();
 	return (
 		<>
-			<Leva
-				flat
-				titleBar={true}
-				hidden={false}
-				collapsed
-			/>
+			<Leva flat titleBar={true} hidden={!isDebugPanelEnbale} collapsed />
 			<Canvas
 				camera={{
 					fov: 55,
