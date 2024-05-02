@@ -4,7 +4,7 @@ import { useFrame } from "@react-three/fiber";
 
 import { analyserRef } from "../Audio/Audio";
 import { map, lerp } from "../../utils/utils";
-import { useCustomControls } from "../../hooks";
+import { useCustomControls, useVisualization } from "../../hooks";
 
 import Line from "../Line/Line";
 import useStore from "../../store/store";
@@ -21,6 +21,9 @@ const Lines = () => {
 		[controls.line.count]
 	);
 	const linesList = useMemo(() => [...new Array(linesCount)], [linesCount]);
+
+	// camera shifting ver1
+	useVisualization();
 
 	useFrame((state) => {
 		const time = state.clock.getElapsedTime();
