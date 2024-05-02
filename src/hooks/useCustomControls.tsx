@@ -68,8 +68,8 @@ function useLineControl() {
 			gap: {
 				min: 0.01,
 				max: 5,
-				step: 0.01,
-				value: 0.095,
+				step: 0.1,
+				value: 0.1,
 			},
 			count: {
 				min: 1,

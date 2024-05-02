@@ -23,7 +23,7 @@ const Lines = () => {
 	const linesList = useMemo(() => [...new Array(linesCount)], [linesCount]);
 
 	// camera shifting ver1
-	useVisualization();
+	useVisualization(linesRef);
 
 	useFrame((state) => {
 		const time = state.clock.getElapsedTime();
@@ -58,7 +58,7 @@ const Lines = () => {
 					<axesHelper args={[controls.axes.AxesLength]} />
 				)}
 				{linesList.map((_, index) => {
-					return <Line index={index} />;
+					return <Line key={index} index={index} />;
 				})}
 			</group>
 		</Center>
