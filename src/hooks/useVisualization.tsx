@@ -2,9 +2,9 @@ import { useThree } from "@react-three/fiber";
 import { useEffect } from "react";
 import gsap from "gsap";
 
-import useStore from "../store/store";
+import useStore from "../store";
 
-const useVisualization = (linesRef) => {
+const useVisualization = (linesRef: any) => {
 	const isMusicPlaying = useStore((state) => state.isMusicPlaying);
 	const fog = useThree((three) => three.scene.fog);
 	const camera = useThree((three) => three.camera);
@@ -22,13 +22,15 @@ const useVisualization = (linesRef) => {
 				const gap = 2.8;
 				const linesCount = linesRef.current!.children.length;
 
-				linesRef.current?.children.forEach((group, index) => {
-					gsap.to(group.position, {
-						z: -index * gap,
-						duration: 3,
-						ease: "power1.inOut",
-					});
-				});
+				linesRef.current?.children.forEach(
+					(group: any, index: number) => {
+						gsap.to(group.position, {
+							z: -index * gap,
+							duration: 3,
+							ease: "power1.inOut",
+						});
+					}
+				);
 
 				gsap.to(fog, {
 					density: 0.01,

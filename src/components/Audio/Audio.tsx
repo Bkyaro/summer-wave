@@ -4,7 +4,7 @@ import * as THREE from "three";
 import { useCustomControls } from "../../hooks";
 
 import trackPath from "../../assets/track.mp3";
-import useStore from "../../store/store";
+import useStore from "../../store";
 
 export const analyserRef = createRef() as MutableRefObject<THREE.AudioAnalyser>;
 

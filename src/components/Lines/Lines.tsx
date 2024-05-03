@@ -7,13 +7,14 @@ import { map, lerp } from "../../utils/utils";
 import { useCustomControls, useVisualization } from "../../hooks";
 
 import Line from "../Line/Line";
-import useStore from "../../store/store";
+import useStore from "../../store";
+import { Group } from "three";
 
 const Lines = () => {
 	// debug panel values
 	const controls = useCustomControls();
 
-	const linesRef = useRef(null!);
+	const linesRef = useRef<Group>(null!);
 	const isMusicPlaying = useStore((state) => state.isMusicPlaying);
 
 	const linesCount = useMemo(
@@ -33,7 +34,7 @@ const Lines = () => {
 		const frequencies = analyserRef.current?.getFrequencyData();
 
 		lines.children.forEach((line, index) => {
-			line.children.forEach((lineOrPlane) => {
+			line.children.forEach((lineOrPlane: any) => {
 				const uniforms = lineOrPlane.material.uniforms;
 				uniforms.uTime.value = time;
 
