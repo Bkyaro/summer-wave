@@ -19,8 +19,6 @@ const useTextsAnimation = (
 			return;
 		}
 
-		console.log("running...", isMusicPlaying);
-		console.log("titleRef", titleRef);
 		if (isMusicPlaying) {
 			gsap.to([titleRef, subTitleRef, footerRef, buttonRef], {
 				opacity: 0,
