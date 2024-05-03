@@ -179,3 +179,52 @@ button:after {
 	box-sizing: border-box;
 	animation: rotation 1s linear infinite;
 }
+
+#intro {
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	top: 9%;
+	left: 0;
+	width: 100%;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+}
+
+#intro .title {
+	position: absolute;
+	text-transform: uppercase;
+	font-size: 2.3rem;
+	line-height: 1.7;
+	/* opacity: 0; */
+}
+
+#intro .sub-title {
+	position: absolute;
+	/* opacity: 0; */
+	margin-top: 6.2rem;
+}
+
+footer {
+	position: absolute;
+	width: 100%;
+	bottom: 0;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+footer > div {
+	font-size: 0.8rem;
+	padding: 0.5rem 1rem;
+	opacity: 0.8;
+	word-break: break-all;
+}
+
+/* responsive < 768 */
+@media (max-width: 768px) {
+	footer > div {
+		font-size: 0.6rem;
+	}
+}

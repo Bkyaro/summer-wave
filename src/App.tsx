@@ -2,6 +2,7 @@ import "./App.css";
 import { Canvas } from "@react-three/fiber";
 import Scene from "./components/Scene";
 import PlayButton from "./components/Button";
+import Texts from "./components/Texts";
 import { Leva } from "leva";
 import { useDebugPanel } from "./hooks";
 
@@ -22,6 +23,8 @@ function App() {
 			</Canvas>
 
 			<PlayButton />
+
+			<Texts />
 		</>
 	);
 }
