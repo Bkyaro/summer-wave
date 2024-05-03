@@ -1,19 +1,23 @@
 import { useEffect, useState } from "react";
 
-const useDebugPanel = () => {
-	const [debugPanel, setDebugPanel] = useState(false);
+export default function useDebugPanel() {
+	const [hash, setHash] = useState(window.location.hash);
+	const [useDebugPanel, setUseDebugPanel] = useState(false);
 
 	useEffect(() => {
+		if (hash === "#debug") {
+			setUseDebugPanel(true);
+		} else {
+			setUseDebugPanel(false);
+		}
 		const hashChangeHandler = () => {
-			setDebugPanel(window.location.hash === "#debug");
+			setHash(window.location.hash);
 		};
-		window.addEventListener("hashchange", hashChangeHandler);
+		addEventListener("hashchange", hashChangeHandler);
 		return () => {
-			window.removeEventListener("hashchange", hashChangeHandler);
+			removeEventListener("hashchange", hashChangeHandler);
 		};
-	}, []);
+	}, [hash]);
 
-	return debugPanel;
-};
-
-export default useDebugPanel;
+	return useDebugPanel;
+}

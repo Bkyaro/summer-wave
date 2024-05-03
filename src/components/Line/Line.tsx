@@ -7,7 +7,7 @@ import planeShader from "../../shaders/plane/plane.fragment.glsl";
 import { useCustomControls } from "../../hooks";
 
 const lineGeometry = new THREE.BoxGeometry(5, 0.03, 0.02, 128, 1, 1);
-const planeGerometry = new THREE.PlaneGeometry(5, 1.5, 128, 1);
+const planeGerometry = new THREE.PlaneGeometry(5, 0.8, 128, 1);
 
 interface Props {
 	index: number;
@@ -26,11 +26,8 @@ const Line: FC<Props> = (props) => {
 	}, [props.index]);
 
 	return (
-		<group>
-			<mesh
-				position-z={-props.index * controls.line.gap}
-				geometry={lineGeometry}
-			>
+		<group position-z={-props.index * controls.line.gap}>
+			<mesh geometry={lineGeometry}>
 				<shaderMaterial
 					vertexShader={vertexShader}
 					fragmentShader={fragmentShader}
@@ -38,11 +35,7 @@ const Line: FC<Props> = (props) => {
 					fog
 				/>
 			</mesh>
-			<mesh
-				position-z={-props.index * controls.line.gap}
-				position-y={-0.75}
-				geometry={planeGerometry}
-			>
+			<mesh position-y={-0.42} geometry={planeGerometry}>
 				<shaderMaterial
 					vertexShader={vertexShader}
 					fragmentShader={planeShader}

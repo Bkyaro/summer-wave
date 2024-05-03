@@ -34,7 +34,7 @@ const useVisualization = (linesRef: any) => {
 
 				gsap.to(fog, {
 					density: 0.01,
-					duratioN: 2.5,
+					duration: 2.5,
 					ease: "power1.inOut",
 				});
 
