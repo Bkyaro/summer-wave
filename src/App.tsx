@@ -1,7 +1,7 @@
 import "./App.css";
 import { Canvas } from "@react-three/fiber";
-import Scene from "./components/Scene/Scene";
-import PlayButton from "./components/Button/Button";
+import Scene from "./components/Scene";
+import PlayButton from "./components/Button";
 import { Leva } from "leva";
 import { useDebugPanel } from "./hooks";
 

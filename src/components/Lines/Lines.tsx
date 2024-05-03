@@ -2,7 +2,7 @@ import { useMemo, useRef } from "react";
 import { Center } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 
-import { analyserRef } from "../Audio/Audio";
+import analyserRef from "../Audio";
 import { map, lerp } from "../../utils/utils";
 import { useCustomControls, useVisualization } from "../../hooks";
 

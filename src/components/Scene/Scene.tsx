@@ -1,7 +1,7 @@
 import { OrbitControls } from "@react-three/drei";
 import { Suspense } from "react";
-import Lines from "../Lines/Lines";
-import Audio from "../../components/Audio/Audio";
+import Lines from "../Lines";
+import Audio from "../../components/Audio";
 import { useCustomControls } from "../../hooks";
 import Loader from "../../components/Loader";
 
