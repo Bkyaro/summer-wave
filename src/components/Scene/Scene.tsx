@@ -10,16 +10,18 @@ const Scene = () => {
 
 	return (
 		<>
-			<color args={[controls.scene.fogAndBg]} attach="background"></color>
-			<OrbitControls />
-			<fogExp2
-				attach="fog"
-				color={controls.scene.fogAndBg}
-				density={controls.scene.fogDensity / 100}
-			/>
-			<Audio />
-
 			<Suspense fallback={<Loader />}>
+				<color
+					args={[controls.scene.fogAndBg]}
+					attach="background"
+				></color>
+				<OrbitControls />
+				<fogExp2
+					attach="fog"
+					color={controls.scene.fogAndBg}
+					density={controls.scene.fogDensity / 100}
+				/>
+				<Audio />
 				<Lines />
 			</Suspense>
 		</>
