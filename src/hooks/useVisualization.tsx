@@ -9,6 +9,17 @@ const useVisualization = (linesRef: any) => {
 	const fog = useThree((three) => three.scene.fog);
 	const camera = useThree((three) => three.camera);
 
+	// camera initail stage
+	useEffect(() => {
+		gsap.to(camera.position, {
+			x: 0,
+			y: 0,
+			z: -20,
+			duration: 3.5,
+			// ease: "back.out",
+		});
+	}, []);
+
 	useEffect(() => {
 		if (!isMusicPlaying) return;
 

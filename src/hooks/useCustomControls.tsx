@@ -1,6 +1,35 @@
 import { useControls } from "leva";
 
 // scene
+function useCameraControl() {
+	const camera = useControls(
+		"camera",
+		{
+			x: {
+				min: -1000,
+				max: 1000,
+				step: 1,
+				value: 0,
+			},
+			y: {
+				min: -1000,
+				max: 1000,
+				step: 1,
+				value: 0,
+			},
+			z: {
+				min: -1000,
+				max: 1000,
+				step: 1,
+				value: -20,
+			},
+		},
+		{ collapsed: true }
+	);
+
+	return camera;
+}
+// scene
 function useSceneControl() {
 	const scene = useControls(
 		"scene",
@@ -86,12 +115,14 @@ function useLineControl() {
 
 // all controls in one place
 function useCustomControls() {
+	const camera = useCameraControl();
 	const scene = useSceneControl();
 	const audio = useAudioControl();
 	const line = useLineControl();
 	const axes = useAxesControl();
 
 	return {
+		camera,
 		audio,
 		line,
 		axes,
