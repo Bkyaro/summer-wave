@@ -4,7 +4,7 @@ import gsap from "gsap";
 import useStore from "../../store";
 import { Play } from "../Icons";
 import useTextsAnimation from "../../animations";
-import { useIsMobile } from "../../hooks";
+import { useIsMobile, useCursorHover } from "../../hooks";
 
 const Texts = () => {
 	const buttonRef = useRef<HTMLDivElement>(null);
@@ -13,6 +13,7 @@ const Texts = () => {
 	const footerRef = useRef<HTMLDivElement>(null);
 	const setIsMusicPlaying = useStore((state) => state.setIsMusicPlaying);
 	const isMobile = useIsMobile();
+	const cursorHover = useCursorHover();
 
 	useTextsAnimation(
 		buttonRef.current!,
@@ -45,24 +46,29 @@ const Texts = () => {
 
 			{/* initial State Texts */}
 			<div id="intro">
-				<h1 className="title" ref={titleRef}>
+				<h1 className="title" ref={titleRef} {...cursorHover.text}>
 					SUMMER WAVE
 				</h1>
-				<span className="sub-title" ref={subTitleRef}>
+				<span
+					className="sub-title"
+					ref={subTitleRef}
+					{...cursorHover.text}
+				>
 					Once you delve into WebGL, it's as deep as the ocean.
 				</span>
 			</div>
 			<footer ref={footerRef}>
 				<div id="clarify">
-					<span>* Music by NABI not me.</span>
+					<span {...cursorHover.text}>* Music by NABI not me.</span>
 				</div>
 				<div id="source">
-					<span>
+					<span {...cursorHover.text}>
 						* mimic project, original by{" "}
 						<a
 							href="https://pouria.dev"
 							title="pouria.dev"
 							target="_blank"
+							{...cursorHover.link}
 						>
 							pouria.dev
 						</a>
@@ -72,7 +78,7 @@ const Texts = () => {
 
 			{/* start button */}
 			<div ref={buttonRef} id="button-container" onClick={onClickHandler}>
-				<button id="play-btn">
+				<button id="play-btn" {...cursorHover.link}>
 					<Play />
 					<span>WAVEY</span>
 				</button>

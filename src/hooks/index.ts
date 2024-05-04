@@ -4,3 +4,4 @@ export { default as useDebugPanel } from "./useDebugPanel";
 export { default as useIsMobile } from "./useIsMobile";
 export { default as useCursor } from "./useCursor";
 export { default as useWindowSize } from "./useWindowSize";
+export { default as useCursorHover } from "./useCursorHover";

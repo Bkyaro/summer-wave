@@ -12,6 +12,10 @@
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-text-size-adjust: 100%;
+
+	cursor: none;
+	--cursor-width: 80px;
+	--cursor-height: 80px;
 }
 
 * {
@@ -27,6 +31,7 @@ body {
 	place-items: center;
 	width: 100vw;
 	height: 100vh;
+	max-height: 100vh;
 	background-color: #021119;
 	overflow: hidden;
 }
@@ -57,6 +62,7 @@ canvas {
 	text-align: center;
 	z-index: 1;
 	opacity: 0;
+	cursor: none;
 }
 
 button {
@@ -71,7 +77,7 @@ button {
 	border-radius: 20px;
 	color: rgba(255, 255, 255, 0.8);
 	letter-spacing: 0.04rem;
-	cursor: pointer;
+	cursor: none;
 	font-weight: 700;
 	transition: all 0.5s ease 0.1s;
 }
@@ -228,17 +234,25 @@ footer > div {
 	max-width: 50%;
 }
 
+#source a {
+	cursor: none;
+}
+
 #cursor {
 	position: absolute;
-	top: 0;
-	left: 0;
+	top: calc((var(--cursor-height)) / -2);
+	left: calc((var(--cursor-width)) / -2);
 	display: block;
-	width: 80px;
-	height: 80px;
+	width: var(--cursor-width);
+	height: var(--cursor-height);
 	transform: scale(0);
 	border-radius: 100%;
+	pointer-events: none;
+	transform-origin: center;
+	mix-blend-mode: difference;
 	border: 1px solid rgba(255, 255, 255, 0.5);
 	background-color: rgba(255, 255, 255, 0);
+	z-index: 99;
 }
 
 /* responsive < 768 */

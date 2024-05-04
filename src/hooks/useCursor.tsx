@@ -8,12 +8,8 @@ const useCursor = () => {
 		const onMouseMove = (event: MouseEvent) => {
 			cursor &&
 				gsap.to(cursor, {
-					x:
-						event.clientX -
-						cursor?.getBoundingClientRect().width / 2,
-					y:
-						event.clientY -
-						cursor?.getBoundingClientRect().height / 2,
+					x: event.clientX,
+					y: event.clientY,
 					duration: 0.28,
 					ease: "sine.out",
 				});
