@@ -8,15 +8,22 @@ const useVisualization = (linesRef: any) => {
 	const isMusicPlaying = useStore((state) => state.isMusicPlaying);
 	const fog = useThree((three) => three.scene.fog);
 	const camera = useThree((three) => three.camera);
+	const cursor = document.getElementById("cursor");
 
-	// camera initail stage
 	useEffect(() => {
+		// camera initail stage
 		gsap.to(camera.position, {
 			x: 0,
 			y: 0,
 			z: -20,
 			duration: 3.5,
-			// ease: "back.out",
+		});
+
+		//cursor initial animiation
+
+		gsap.to(cursor, {
+			scale: 1,
+			duration: 2,
 		});
 	}, []);
 

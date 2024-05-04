@@ -2,11 +2,12 @@ import { OrbitControls } from "@react-three/drei";
 import { Suspense } from "react";
 import Lines from "../Lines";
 import Audio from "../../components/Audio";
-import { useCustomControls, useIsMobile } from "../../hooks";
+import { useCustomControls, useCursor } from "../../hooks";
 import Loader from "../../components/Loader";
 
 const Scene = () => {
 	const controls = useCustomControls();
+	useCursor();
 
 	return (
 		<>
