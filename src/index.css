@@ -198,12 +198,13 @@ button:after {
 	font-size: 2.3rem;
 	line-height: 1.7;
 	opacity: 0;
+	white-space: nowrap;
 }
 
 #intro .sub-title {
 	position: absolute;
 	opacity: 0;
-	margin-top: 6.2rem;
+	margin-top: 2.2rem;
 }
 
 footer {
@@ -221,6 +222,10 @@ footer > div {
 	padding: 0.5rem 1rem;
 	opacity: 0.5;
 	word-break: break-all;
+}
+
+#source {
+	max-width: 50%;
 }
 
 /* responsive < 768 */
