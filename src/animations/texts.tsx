@@ -12,6 +12,8 @@ const useTextsAnimation = (
 	const [mimicRender, setMimicRender] = useState(0);
 
 	useEffect(() => {
+		const cursor = document.getElementById("cursor");
+		
 		if (!titleRef || !subTitleRef || !footerRef || !buttonRef) {
 			setTimeout(() => {
 				setMimicRender((count) => count + 1);
@@ -20,7 +22,7 @@ const useTextsAnimation = (
 		}
 
 		if (isMusicPlaying) {
-			gsap.to([titleRef, subTitleRef, footerRef, buttonRef], {
+			gsap.to([titleRef, subTitleRef, footerRef, buttonRef, cursor], {
 				opacity: 0,
 				duration: 1,
 				ease: "power2.out",

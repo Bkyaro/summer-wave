@@ -77,8 +77,12 @@ const Texts = () => {
 			</footer>
 
 			{/* start button */}
-			<div ref={buttonRef} id="button-container" onClick={onClickHandler}>
-				<button id="play-btn" {...cursorHover.link}>
+			<div ref={buttonRef} id="button-container">
+				<button
+					id="play-btn"
+					{...cursorHover.link}
+					onClick={onClickHandler}
+				>
 					<Play />
 					<span>WAVEY</span>
 				</button>
